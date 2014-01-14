@@ -1,0 +1,45 @@
+{
+  "name": "gulp-hash",
+  "description": "Hashes file names",
+  "version": "0.0.1",
+  "homepage": "http://github.com/Grassmere467/gulp-hash",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Grassmere467/gulp-hash.git"
+  },
+  "author": {
+    "name": "dhunt",
+    "email": "",
+    "url": ""
+  },
+  "main": "./index.js",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "dependencies": {
+    "through": "~2.3.4",
+    "gulp-util": "~2.2.5"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/grassmere467/gulp-hash/raw/master/LICENSE"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/grasssmere467/gulp-hash/issues"
+  },
+  "_id": "gulp-hash@0.0.1",
+  "_from": "gulp-hash@"
+}
