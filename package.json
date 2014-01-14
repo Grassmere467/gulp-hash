@@ -17,6 +17,7 @@
     "gulpplugin"
   ],
   "dependencies": {
+    "sha1": "*",
     "through": "~2.3.4",
     "gulp-util": "~2.2.5"
   },
