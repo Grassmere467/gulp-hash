@@ -6,14 +6,13 @@ var PluginError = gutil.PluginError;
 var File = gutil.File;
 var sha1 = require('sha1');
 
-
 module.exports = function(fileName, opt){
   if (!fileName) throw new PluginError('gulp-hash',  'Missing fileName option for gulp-hash');
   if (!opt) opt = {};
   if (!opt.newLine) opt.newLine = gutil.linefeed;
 
-  var objects = [];
     var firstFile = null;
+    var assets = {};
 
   function bufferContents(file){
     if (file.isNull()) return; // ignore
@@ -25,28 +24,19 @@ module.exports = function(fileName, opt){
 
     var extName = path.extname(file.path);
     var fileName = path.basename(file.path, extName);
-    var hash = sha1(fileName);
+    var hash = sha1(fileName).substring(0, 8);
 
-
-    obj = {
-        base: file.base,
-        path: file.path,
-        filename: fileName,
-        extension: extName,
-        newFilename: fileName + hash + extName 
-    };
-
-    objects.push(obj);
+    assets[fileName + extName] = fileName + '.' + hash + extName;
   }
 
   function endStream(){
-    //console.log(JSON.stringify(objects));  
+    //console.log(JSON.stringify(assets));  
 
     var assetsFile = new File({
         cwd: firstFile.cwd,
         base: firstFile.base,
         path: path.join(firstFile.base, fileName),
-        contents: new Buffer(JSON.stringify(objects))   
+        contents: new Buffer(JSON.stringify(assets))   
     }); 
 
     this.emit('data', assetsFile);
